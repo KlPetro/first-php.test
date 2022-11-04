@@ -1,1 +1,3 @@
 # first-php.test
+
+<!-- second -->
