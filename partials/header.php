@@ -34,7 +34,9 @@ session_start();
   <?php
     if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] != null){
       echo '<a href="logout.php">Logout</a>';
-    }else{
+    }else if(isset($_COOKIE["user_id"]) && $_COOKIE["user_id"] != null){
+      echo '<a href="logout.php">Logout</a>';
+    } else {
   ?>
     <a href="login.php">Login</a>
     <a href="register.php">Register</a>

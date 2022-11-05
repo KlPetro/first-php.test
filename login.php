@@ -1,21 +1,26 @@
 <?php
-require($_SERVER['DOCUMENT_ROOT'] . '/partials/header.php');
+  require($_SERVER['DOCUMENT_ROOT'] . '/partials/header.php');
 
-if(!empty($_POST)){
+  if(!empty($_POST)){
 
-  $sql = "SELECT * FROM `users` WHERE `email`='" . $_POST['email'] . "'  AND `password`='" . $_POST['password'] . "'";
+    $sql = "SELECT * FROM `users` WHERE `email`='" . $_POST['email'] . "'  AND `password`='" . $_POST['password'] . "'";
 
-  $result = mysqli_query($conn, $sql);
-  $user = $result->fetch_assoc();
+    $result = mysqli_query($conn, $sql);
+    $user = $result->fetch_assoc();
 
-  if($user) {
-     $_SESSION["user_id"]=$user['id'];
-      header("Location: /");
-     echo $user['id'];
-  }else{
-    $_SESSION["user_id"] = null;
+
+      if($user) {
+        if(isset($_POST['remember'])){
+          setcookie('user_id', $user['id'], time()+60*60*24*30, '/');
+          } else {
+            $_SESSION["user_id"] = $user['id'];
+          }
+        header("Location: /");
+      } else {
+        $_SESSION["user_id"] = null;
+        setcookie('user_id', '', 0, '/');
+      }
   }
-}
 ?>
 
 <main class="form-signin w-100 m-auto">
@@ -33,7 +38,7 @@ if(!empty($_POST)){
 
     <div class="checkbox mb-3">
       <label>
-        <input type="checkbox" value="remember-me"> Remember me
+        <input type="checkbox" name="remember" value="1"> Remember me
       </label>
     </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
