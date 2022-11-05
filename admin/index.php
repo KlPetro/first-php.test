@@ -1,8 +1,24 @@
 <?php
-require ("../configs/db.php");
-require ("partials/header.php");
+require($_SERVER['DOCUMENT_ROOT'] . '/configs/db.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/admin/partials/header.php');
+
+
+
+ if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] != null){
+
+  $sql = "SELECT * FROM users WHERE id =" . $_SESSION["user_id"];
+    $result = mysqli_query($conn, $sql);
+    $user = $result->fetch_assoc();
+
+    if($user['role'] != "admin"){
+        header("Location: /login.php");
+    }
+    }else{
+       header("Location: /login.php");
+    }
+
 ?>
-     
+
 <form action="add_user.php" method="POST">
 <label>Name:<input type="text" name="name"></label><br>
 <label>Email:<input type="text" name="email"></label><br>
@@ -25,7 +41,7 @@ $result = $conn->query($sql);
   </tr>
 <?php
     while($row = $result->fetch_assoc())
-    { 
+    {
 ?>
     <tr>
         <td><?php echo $row['id']; ?></td>
@@ -36,7 +52,7 @@ $result = $conn->query($sql);
             <button class="btnDelete" data-id="<?php echo $row['id']; ?>">Delete</button>
         </td>
 
-    </tr>  
+    </tr>
 <?php
     }
 ?>
