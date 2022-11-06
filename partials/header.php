@@ -29,7 +29,7 @@ session_start();
   <meta name="theme-color" content="#fafafa">
 </head>
 
-<body>
+<body style="background: #e0e0e0">
 
   <?php
     if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] != null){

@@ -229,6 +229,10 @@
                           case 'edit':
                             require($_SERVER['DOCUMENT_ROOT'] . '/admin/modules/users/edit.php');
                           break;
+
+                          case 'add':
+                            require($_SERVER['DOCUMENT_ROOT'] . '/admin/modules/users/add.php');
+                          break;
                         }
                       }
                     ?>
