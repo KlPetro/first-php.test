@@ -219,49 +219,20 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">User list</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Username</th>
-                                            <th>Email</th>
-                                            <th>Role</th>
-                                            <th>Option</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                <?php
-                                  $sql = "SELECT * FROM users";
-                                  //$result = $conn->query($sql);
-                                  $result = mysqli_query($conn, $sql);
-                                  while($row = $result->fetch_assoc())
-                                  {
-                                ?>
-                                        <tr>
-                                              <td><?php echo $row['id']; ?></td>
-                                              <td><?php echo $row['username']; ?></td>
-                                              <td><?php echo $row['email']; ?></td>
-                                              <td><?php echo $row['role']; ?></td>
-                                              <td>
-                                                  <a href="#" class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a>
-                                                  <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
-                                              </td>
-                                        </tr>
-                                <?php
-                                  }
-                                ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+
+
+                    <?php
+                      if(empty($_GET)){
+                        require($_SERVER['DOCUMENT_ROOT'] . '/admin/modules/users/all.php');
+                      } else{
+                        switch($_GET['page']){
+                          case 'edit':
+                            require($_SERVER['DOCUMENT_ROOT'] . '/admin/modules/users/edit.php');
+                          break;
+                        }
+                      }
+                    ?>
+
 
                 </div>
                 <!-- /.container-fluid -->
