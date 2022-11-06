@@ -6,7 +6,6 @@
           require($_SERVER['DOCUMENT_ROOT'] . '/admin/partials/sidebar.php');
       ?>
 
-
   </div>
 
 <?php
