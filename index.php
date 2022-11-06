@@ -9,13 +9,13 @@ require($_SERVER['DOCUMENT_ROOT'] . '/partials/header.php');
     $result = mysqli_query($conn, $sql);
     $user = $result->fetch_assoc();
 ?>
-  <h2>Hello, <?php echo $user['username'] ?> </h2>
- 
+  <h2 style="font-size: 145px; color: green">Hello, <?php echo $user['username'] ?> </h2>
+
 <?php
   } else {
 ?>
 
-<h2>Hello</h2>
+<h2 style="font-size: 145px; color: grey">Hello</h2>
 <?php } ?>
 
 <?php

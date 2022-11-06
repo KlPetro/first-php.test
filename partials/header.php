@@ -33,9 +33,13 @@ session_start();
 
   <?php
     if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] != null){
-      echo '<a href="logout.php">Logout</a>';
+      echo '<a href="logout.php">Logout </a>';
+      echo '<a href="/admin"> Admin</a>';
+
+
     }else if(isset($_COOKIE["user_id"]) && $_COOKIE["user_id"] != null){
-      echo '<a href="logout.php">Logout</a>';
+      echo '<a href="logout.php">Logout </a>';
+      echo '<a href="/admin"> Admin</a>';
     } else {
   ?>
     <a href="login.php">Login</a>
@@ -43,4 +47,3 @@ session_start();
   <?php
     }
   ?>
-<h6>===============================Top===============================</h6>

@@ -1,4 +1,4 @@
-<h6>==============================Bottom=============================</h6>
+
 
   <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
