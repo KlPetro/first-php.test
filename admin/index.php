@@ -41,5 +41,5 @@
 </table>
 
 <?php
-require("partials/footer.php")
+require($_SERVER['DOCUMENT_ROOT'] . '/admin/partials/footer.php');
 ?>
