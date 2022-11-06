@@ -1,26 +1,5 @@
 <?php
-  require($_SERVER['DOCUMENT_ROOT'] . '/configs/db.php');
-  require($_SERVER['DOCUMENT_ROOT'] . '/admin/partials/header.php');
-
-  $is_session = isset($_SESSION["user_id"]) && $_SESSION["user_id"] != null;
-  $is_cookie = isset($_COOKIE["user_id"]) && $_COOKIE["user_id"] != null;
-
-  if($is_session || $is_cookie){
-
-    $userID = $is_session ? $_SESSION["user_id"] : $_COOKIE["user_id"];
-
-    $sql = "SELECT * FROM users WHERE id =" . $userID;
-    $result = mysqli_query($conn, $sql);
-    $user = $result->fetch_assoc();
-
-      if($user['role'] != "admin"){
-          header("Location: /login.php");
-      }
-
-    }else{
-       header("Location: /login.php");
-    }
-
+    require($_SERVER['DOCUMENT_ROOT'] . '/admin/partials/header.php');
 ?>
 
 <form action="add_user.php" method="POST">
@@ -31,11 +10,10 @@
 
 
 <?php
-$sql = "SELECT * FROM users";
-
-$result = $conn->query($sql);
-
+  $sql = "SELECT * FROM users";
+  $result = $conn->query($sql);
 ?>
+
 <table id="customers">
       <tr>
     <th>ID</th>
