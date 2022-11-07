@@ -201,9 +201,21 @@
                 <div class="container-fluid">
 
 
+                    
                     <?php
                       if(empty($_GET)){
                         require($_SERVER['DOCUMENT_ROOT'] . '/admin/modules/posts/all.php');
+                      } else{
+                        switch($_GET['page']){
+
+                          case 'edit':
+                            require($_SERVER['DOCUMENT_ROOT'] . '/admin/modules/posts/edit.php');
+                          break;
+
+                          case 'add':
+                            require($_SERVER['DOCUMENT_ROOT'] . '/admin/modules/posts/add.php');
+                          break;
+                        }
                       }
                     ?>
 

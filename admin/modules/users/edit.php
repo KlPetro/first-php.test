@@ -4,7 +4,9 @@
 if(!empty($_POST)){
 
     $sql = "UPDATE `users` SET `username` = '" . $_POST['name'] . "', `email` = '" . $_POST['email'] . "' WHERE `users`.`id` = " . $_GET['id'] . ";";
-if (mysqli_query($conn, $sql)) {
+
+
+    if (mysqli_query($conn, $sql)) {
       echo "<h2>User updated... <a href='/admin/users.php'>Return</a></h2>";
 } else {
       echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -14,6 +16,8 @@ if (mysqli_query($conn, $sql)) {
 $sql="SELECT * FROM users WHERE id = " . $_GET['id'];
 $result = mysqli_query($conn, $sql);
 $row=$result->fetch_assoc();
+
+
 ?>
   <div class="card shadow mb-4">
     <div class="card-header py-3">

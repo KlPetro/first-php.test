@@ -226,6 +226,7 @@
                         require($_SERVER['DOCUMENT_ROOT'] . '/admin/modules/users/all.php');
                       } else{
                         switch($_GET['page']){
+
                           case 'edit':
                             require($_SERVER['DOCUMENT_ROOT'] . '/admin/modules/users/edit.php');
                           break;
