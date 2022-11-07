@@ -1,7 +1,8 @@
 <?php
-require($_SERVER['DOCUMENT_ROOT'] . '/configs/db.php');
+  require($_SERVER['DOCUMENT_ROOT'] . '/configs/db.php');
+  session_start();
+  require($_SERVER['DOCUMENT_ROOT'] . '/configs/helpers.php');
 
-session_start();
 
 ?>
 <!doctype html>
@@ -9,7 +10,7 @@ session_start();
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>Blog</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -29,7 +30,7 @@ session_start();
   <meta name="theme-color" content="#fafafa">
 </head>
 
-<body style="background: #e0e0e0">
+<body>
 
   <?php
     if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] != null){

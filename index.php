@@ -1,25 +1,32 @@
 <?php
-require($_SERVER['DOCUMENT_ROOT'] . '/partials/header.php');
-
+  require($_SERVER['DOCUMENT_ROOT'] . '/partials/header.php');
 ?>
 
 <?php
-  if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] != null){
-    $sql = "SELECT * FROM users WHERE id =" . $_SESSION["user_id"];
-    $result = mysqli_query($conn, $sql);
-    $user = $result->fetch_assoc();
+  if(isLogin()){
+    $user = getCurrentUser();
 ?>
-  <h2 style="font-size: 145px; color: green">Hello, <?php echo $user['username'] ?> </h2>
+  <h2>Hello, <?php echo $user ['username'];?></h2>
+
+<?php
+  require($_SERVER['DOCUMENT_ROOT'] . '/partials/twit.php');
+?>
+
+
+
+
+
+
+
+
 
 <?php
   } else {
 ?>
-
-<h2 style="font-size: 145px; color: grey">Hello</h2>
-<?php } ?>
-
-<h1 style="font-size: 245px; color: tomato">My First PHP</h1>
-
+  <h2>Hello</h2>
 <?php
-require($_SERVER['DOCUMENT_ROOT'] . '/partials/footer.php')
+  }
+?>
+<?php
+  require($_SERVER['DOCUMENT_ROOT'] . '/partials/footer.php')
 ?>
