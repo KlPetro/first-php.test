@@ -14,8 +14,8 @@ if (mysqli_query($conn, $sql)) {
 $sql="SELECT * FROM posts WHERE id = " . $_GET['id'];
 $result = mysqli_query($conn, $sql);
 $row=$result->fetch_assoc();
-
-
+$text=$row['twit'];
+var_dump($text);
 ?>
 
 
@@ -31,7 +31,8 @@ $row=$result->fetch_assoc();
     <form action="?page=edit&id=<?php echo $_GET['id'];?>" method="POST">
         <div class="form-floating">
           <label for="floatingTextarea"></label>
-          <textarea type="text" class="form-control" name="twit" placeholder="Leave a comment here" id="floatingTextarea" value="<?php echo $row['twit'];?>"></textarea>
+          <textarea type="text" class="form-control" name="twit" placeholder="Leave a comment here"
+          id="floatingTextarea" value="<?php echo $text; ?>"></textarea>
 
         </div>
       <button type="submit" class="btn btn-success btn-lg"><i class="fas fa-save"></i> Save</button>
