@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Час створення: Лис 06 2022 р., 09:07
+-- Час створення: Лис 07 2022 р., 08:37
 -- Версія сервера: 10.4.25-MariaDB
 -- Версія PHP: 8.1.10
 
@@ -39,8 +39,11 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `twit`, `user_id`, `created`) VALUES
-(1, 'SELECT * FROM `users`\r\nSELECT * FROM `posts`\r\nTRUNCATE TABLE `blog_php`.`posts`\r\nSELECT * FROM `posts`\r\nSELECT * FROM `posts`', '1', '2022-11-06 00:14:28'),
-(2, 'SELECT * FROM `users`\r\nSELECT * FROM `posts`\r\nTRUNCATE TABLE `blog_php`.`posts`\r\nSELECT * FROM `posts`\r\nSELECT * FROM `posts`SELECT * FROM `users`\r\nSELECT * FROM `posts`\r\nTRUNCATE TABLE `blog_php`.`posts`\r\nSELECT * FROM `posts`\r\nSELECT * FROM `posts`', '2', '2022-11-06 00:14:28');
+(1, 'Disabled buttons using <a> should include the aria-disabled=\"true\" attribute to indicate the state of the element to assistive technologies.', '1', '2022-11-06 00:14:28'),
+(2, 'Оператори порівняння виконують порівнювання заданих значень та повертають True (істина) або False (брехня).++', '9', '2022-11-06 00:14:28'),
+(3, '123234345rtgdfgdfg', '3', '2022-11-06 21:16:38'),
+(7, 'aaaaa', '10', '2022-11-07 00:03:16'),
+(12, 'kokoko', '3', '2022-11-07 09:09:46');
 
 -- --------------------------------------------------------
 
@@ -52,8 +55,8 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `role` varchar(30) NOT NULL
+  `password` varchar(255) DEFAULT NULL,
+  `role` varchar(30) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -62,8 +65,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`) VALUES
 (1, 'Greg', 'greg@i.ua', '123456', 'user'),
-(2, 'qwe', 'qwer@i.ua', '12345', 'user'),
-(3, 'q', 'q@q', '123', 'admin');
+(3, 'q', 'q@q', '123', 'admin'),
+(9, 'west', 'west@q', NULL, 'user'),
+(10, 'west22', 'west22@q', NULL, 'user'),
+(11, 'Greg', '11@11', NULL, 'user');
 
 --
 -- Індекси збережених таблиць
@@ -89,13 +94,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблиці `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT для таблиці `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

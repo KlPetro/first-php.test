@@ -31,8 +31,8 @@ var_dump($text);
     <form action="?page=edit&id=<?php echo $_GET['id'];?>" method="POST">
         <div class="form-floating">
           <label for="floatingTextarea"></label>
-          <textarea type="text" class="form-control" name="twit" placeholder="Leave a comment here"
-          id="floatingTextarea" value="<?php echo $text; ?>"></textarea>
+          <input type="text" class="form-control" name="twit" placeholder="Leave a comment here"
+          id="floatingTextarea"  value="<?php echo $text; ?>"></input>
 
         </div>
       <button type="submit" class="btn btn-success btn-lg"><i class="fas fa-save"></i> Save</button>
