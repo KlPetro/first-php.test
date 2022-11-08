@@ -9,7 +9,7 @@ $("#formTwit").on("submit", function (e) {
     url: "/modules/add-twit.php",
     data: data,
     success: function (data) {
-      let ajaxStatus = $("#ajaxStatus").html(data);
+      $("#listTwits").prepend(data);
     },
   });
 });

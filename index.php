@@ -10,6 +10,7 @@
 
 <?php
   require($_SERVER['DOCUMENT_ROOT'] . '/partials/twit.php');
+  require($_SERVER['DOCUMENT_ROOT'] . '/partials/all-twits.php');
 ?>
 
 

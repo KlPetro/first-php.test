@@ -45,6 +45,18 @@
       return 0;
     }
   }
+//==================================================================
+//==================================================================
+//Twits поточного ористувача
+  function getAllTwitsByUser($userID){
+
+    global $conn;
+
+    $sql = "SELECT * FROM posts WHERE user_id =" . $userID . " ORDER BY id DESC";
+    $result = mysqli_query($conn, $sql);
+    return $user = $result;
+  }
+
 ?>
 
 
