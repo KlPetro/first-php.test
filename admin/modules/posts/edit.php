@@ -15,7 +15,6 @@ $sql="SELECT * FROM posts WHERE id = " . $_GET['id'];
 $result = mysqli_query($conn, $sql);
 $row=$result->fetch_assoc();
 $text=$row['twit'];
-var_dump($text);
 ?>
 
 
@@ -25,14 +24,14 @@ var_dump($text);
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary">Edit post</h6>
     </div>
-  <div class="card-body">
+  <div class="card-body container">
 
 
     <form action="?page=edit&id=<?php echo $_GET['id'];?>" method="POST">
         <div class="form-floating">
           <label for="floatingTextarea"></label>
-          <input type="text" class="form-control" name="twit" placeholder="Leave a comment here"
-          id="floatingTextarea"  value="<?php echo $text; ?>"></input>
+          <textarea type="text" class="form-control" name="twit" placeholder="Leave a comment here"
+          id="floatingTextarea"><?php echo $text; ?></textarea>
 
         </div>
       <button type="submit" class="btn btn-success btn-lg"><i class="fas fa-save"></i> Save</button>
