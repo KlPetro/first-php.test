@@ -1,9 +1,10 @@
 <?php
   require($_SERVER['DOCUMENT_ROOT'] . '/configs/db.php');
-  session_start();
+  if(!isset($_SESSION))
+  {
+    session_start();
+  }
   require($_SERVER['DOCUMENT_ROOT'] . '/configs/helpers.php');
-
-
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -30,21 +31,6 @@
   <meta name="theme-color" content="#fafafa">
 </head>
 
-<body>
-
-  <?php
-    if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] != null){
-      echo '<a href="logout.php">Logout </a>';
-      echo '<a href="/admin"> Admin</a>';
-
-
-    }else if(isset($_COOKIE["user_id"]) && $_COOKIE["user_id"] != null){
-      echo '<a href="logout.php">Logout </a>';
-      echo '<a href="/admin"> Admin</a>';
-    } else {
-  ?>
-    <a href="login.php">Login</a>
-    <a href="register.php">Register</a>
-  <?php
-    }
-  ?>
+<body class="d-flex">
+  <?php require($_SERVER['DOCUMENT_ROOT'] . '/partials/sidebar.php'); ?>
+<div>

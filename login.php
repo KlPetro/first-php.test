@@ -23,7 +23,7 @@
   }
 ?>
 
-<main class="form-signin w-100 m-auto">
+<main class="form-signin w-100 m-auto position-absolute top-50 start-50 translate-middle">
   <form action="#" method="POST">
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 

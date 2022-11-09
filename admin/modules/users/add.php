@@ -3,7 +3,7 @@
 
 if(!empty($_POST)){
 
-   $sql = "INSERT INTO `users`(`username`, `email`) VALUES ('" . $_POST['name'] . "','" . $_POST['email'] . "')";
+   $sql = "INSERT INTO `users`(`username`, `email`, `password`) VALUES ('" . $_POST['name'] . "','" . $_POST['email'] . "','" . $_POST['password'] . "')";
 if (mysqli_query($conn, $sql)) {
       echo "<h2>User added... <a href='/admin/users.php'>Return</a></h2>";
 } else {

@@ -2,32 +2,25 @@
   require($_SERVER['DOCUMENT_ROOT'] . '/partials/header.php');
 ?>
 
-<?php
+
+
+
+ <?php
   if(isLogin()){
     $user = getCurrentUser();
 ?>
-  <h2>Hello, <?php echo $user ['username'];?></h2>
+  <div class="container-sm">
+    <?php
+      require($_SERVER['DOCUMENT_ROOT'] . '/partials/twit.php');
+      require($_SERVER['DOCUMENT_ROOT'] . '/partials/all-twits.php');
+    ?>
 
-<?php
-  require($_SERVER['DOCUMENT_ROOT'] . '/partials/twit.php');
-  require($_SERVER['DOCUMENT_ROOT'] . '/partials/all-twits.php');
-?>
+    <?php
+      } else { require($_SERVER['DOCUMENT_ROOT'] . '/partials/all-twits.php');}
+    ?>
 
+  </div>
 
-
-
-
-
-
-
-
-<?php
-  } else {
-?>
-  <h2>Hello</h2>
-<?php
-  }
-?>
 <?php
   require($_SERVER['DOCUMENT_ROOT'] . '/partials/footer.php')
 ?>
